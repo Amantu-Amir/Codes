@@ -94,24 +94,6 @@ struct Dinic
         }
         return maxFlow;
     }
-    ll dinicWithScaling()
-    {
-        ll maxFlow = 0;
-        for(ll lim = (1LL<<30); lim>=1; ){
-            fill(level.begin(), level.end(), -1);
-            level[source] = 0;
-            while(!q.empty()) q.pop();
-            q.push(source);
-            if(bfs()==false){
-                lim/=2;
-                continue;
-            }
-            fill(ptr.begin(), ptr.end(), 0);
-            while(ll pushed = dfs(source, lim))
-                maxFlow+=pushed;
-        }
-        return maxFlow;
-    }
 };
 int main()
 {
