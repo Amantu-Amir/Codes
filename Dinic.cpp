@@ -99,10 +99,9 @@ int main()
 {
     int n,m,a,b,c;
     scanf("%d%d", &n,&m);
-    Dinic dinic(n, 0, n-1);
+    Dinic dinic(n, 1, n);
     while(m--){
         scanf("%d%d%d", &a, &b,&c);
-        --a; --b;
         dinic.addEdge(a, b, c);
         dinic.addEdge(b, a, c);
     }
