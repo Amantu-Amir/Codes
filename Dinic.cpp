@@ -7,13 +7,12 @@ using namespace std;
 https://youtu.be/M6cm8UeeziI
 https://cp-algorithms.com/graph/dinic.html
 */
-/// 0 based
 struct Edge
 {
     int from;
     int to;
     ll cap;
-    ll flow = 0;
+    ll flow;
     Edge(int _from, int _to, ll _cap)
     {
         from = _from;
@@ -31,7 +30,7 @@ struct Dinic
     queue<int> q;
     Dinic(int _n, int _source, int _sink)
     {
-        n = _n;
+        n = _n+5;
         source = _source;
         sink = _sink;
         adj.resize(n);
@@ -81,6 +80,7 @@ struct Dinic
     }
     ll getFlow()
     {
+        for(int i=0; i<m; i++) edges[i].flow = 0;
         ll maxFlow = 0;
         while(true){
             fill(level.begin(), level.end(), -1);
