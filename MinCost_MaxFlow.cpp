@@ -31,7 +31,7 @@ struct MCMF
     queue<int> q;
     MCMF(int _n, int _source, int _sink)
     {
-        n = _n;
+        n = _n+5;
         source = _source;
         sink = _sink;
         adj.resize(n);
